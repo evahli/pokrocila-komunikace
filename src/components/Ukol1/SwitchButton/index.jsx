@@ -1,10 +1,14 @@
 import './style.css';
 
-export const SwitchButton = ({ label }) => {
+export const SwitchButton = ({ label, onSwitch, on }) => {
+  const handleSwitch = () => {
+    onSwitch(true)
+  };
+
   return (
-    <button className="switch-button switch-button--on">
+    <button onClick={handleSwitch} className="switch-button switch-button--on">
       <i className="switch-icon" />
-      <div className="button-label">{label}</div>
+      <div className={on ?"button-label switch-button--on" :"button-label"}>{label}</div>
     </button>
   );
 };
